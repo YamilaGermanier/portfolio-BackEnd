@@ -23,7 +23,8 @@ public class Experiencia {
     public Experiencia() {
     }
 
-    public Experiencia(String puesto, String inicio, String fin, String descripcion) {
+    public Experiencia(int id,String puesto, String inicio, String fin, String descripcion) {
+        this.id = id;
         this.puesto = puesto;
         this.inicio = inicio;
         this.fin = fin;

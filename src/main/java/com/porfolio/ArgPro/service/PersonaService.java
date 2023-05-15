@@ -36,13 +36,12 @@ public class PersonaService {
         persoRepo.save(perso);
     }
     
-
-    public void editarSobreMi(Persona perso) {
+      /*public void editarSobreMi(Persona perso) {
         Persona old = persoRepo.findById((int)1).orElse(null);
         assert old != null;
         old.setSobreMi(perso.getSobreMi());
         persoRepo.save(old);
-    }
+    }*/
 
     public void editarPerfil(Persona perso) {
         Persona old = persoRepo.findById((int)1).orElse(null);
@@ -52,11 +51,11 @@ public class PersonaService {
 
     }
 
-    public void editarBanner(Persona perso) {
+    /*public void editarBanner(Persona perso) {
         Persona old = persoRepo.findById((int)1).orElse(null);
         assert old != null;
         old.setBanner(perso.getBanner());
         persoRepo.save(old);
 
-    }
+    }*/
 }

@@ -1,8 +1,7 @@
 package com.porfolio.ArgPro.controller;
 
-import com.porfolio.ArgPro.entity.Usuario;
-import com.porfolio.ArgPro.service.UsuarioService;
-import java.util.List;
+import com.porfolio.ArgPro.entity.SobreMi;
+import com.porfolio.ArgPro.service.SobreMiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,41 +15,33 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("usuario")
+@RequestMapping("sobreMi")
 @CrossOrigin(origins = "http://localhost:4200")
-public class UsuarioController {
+public class SobreMiController {
     
     @Autowired
-    private UsuarioService userServ;
-    
-    @GetMapping("/lista")
-    @ResponseBody
-    public List<Usuario> verUsuario(){
-        return userServ.verUsuarios();
-    }
+    SobreMiService aboutServ;
     
     @GetMapping("/ver/{id}")
     @ResponseBody
-    public Usuario verUsuario(@PathVariable int id){
-        return userServ.buscarUsuario(id);
+    public SobreMi verSobreMi(@PathVariable int id){
+        return aboutServ.buscarSobreMi(id);
     }
-    
+
     @PostMapping("/crear")
-    public String agregarUsuario(@RequestBody Usuario user){
-        userServ.crearUsuario(user);
-        return"El usuario fue creada correctamente";
+    public String agregarSobreMi(@RequestBody SobreMi about){
+        aboutServ.crearSobreMi(about);
+        return"El texto fue creado correctamente";
     }
     
     @DeleteMapping("/borrar/{id}")
-    public String eliminarUsiario(@PathVariable int id){
-       userServ.borrarUsuario(id);
-        return "El usuario fue borrado correctamente";
+    public String eliminarSobreMi(@PathVariable int id){
+        aboutServ.borrarSobreMi(id);
+        return "LLos datos fueron borrados correctamente.";
 }
     @PutMapping("/editar")
-    public String modificarUsuario(@RequestBody Usuario user){
-        userServ.editarUsuario(user);
+    public String modificarPersona(@RequestBody SobreMi about){
+        aboutServ.editarSobreMi(about);
         return "Los cambios se guardaron correctamente.";
     }
-    
-    
 }

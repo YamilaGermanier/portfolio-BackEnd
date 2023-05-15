@@ -1,11 +1,9 @@
 package com.porfolio.ArgPro.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 
 @Entity
 public class Persona {
@@ -19,23 +17,17 @@ public class Persona {
     private String titulo;
     private String ciudad;
     private String imagenPerfil;
-    private String banner;
-    @Lob
-    @Column(columnDefinition = "TEXT")
-    private String sobreMi;
 
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, String mensaje, String titulo, String ciudad, String imagenPerfil, String banner, String sobreMi) {
+    public Persona(String nombre, String apellido, String mensaje, String titulo, String ciudad, String imagenPerfil) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.mensaje = mensaje;
         this.titulo = titulo;
         this.ciudad = ciudad;
         this.imagenPerfil = imagenPerfil;
-        this.banner = banner;
-        this.sobreMi = sobreMi;
     }
 
     public int getId() {
@@ -94,22 +86,4 @@ public class Persona {
         this.imagenPerfil = imagenPerfil;
     }
 
-    public String getBanner() {
-        return banner;
-    }
-
-    public void setBanner(String banner) {
-        this.banner = banner;
-    }
-
-    public String getSobreMi() {
-        return sobreMi;
-    }
-
-    public void setSobreMi(String sobreMi) {
-        this.sobreMi = sobreMi;
-    }
-
-    
-    
 }

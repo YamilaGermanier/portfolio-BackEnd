@@ -31,7 +31,11 @@ public class UsuarioService {
         return userRepo.findById(id).orElse(null);
     }
     
-    public Usuario editarUsuario (Usuario user, Integer id) {
+    public void editarUsuario(Usuario user) {
+        userRepo.save(user);
+    }
+    
+    public Usuario editarUser (Usuario user, Integer id) {
         Optional<Usuario> localUser = userRepo.findById(id);
         Usuario usuario = null;
         if (localUser.isPresent()) {
@@ -40,6 +44,20 @@ public class UsuarioService {
             usuario = userRepo.save(usuario);
         }
         return usuario;
+    }
+    
+        
+        public boolean iniciarSesion(Usuario user) {
+        List<Usuario> lista = userRepo.findAll();
+        boolean auth = false;
+
+        for(Usuario elemento:lista){
+            if (elemento.getEmail().equals(user.getEmail()) && elemento.getPassword().equals(user.getPassword())) {
+                auth = true;
+                break;
+            }
+        }
+        return auth;
     }
 
 }

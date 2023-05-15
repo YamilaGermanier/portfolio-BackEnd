@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("experiencia")
+@RequestMapping("experiencias")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ExperienciaController {
     
@@ -42,7 +42,7 @@ public class ExperienciaController {
     }
     
     @DeleteMapping("/borrar/{id}")
-    public String eliminarExperiencia(@PathVariable int id){
+    public String eliminarExperiencia(@PathVariable("id") int id){
         expeServ.borrarExperiencia(id);
         return "La Experiencia fue borrada correctamente";
 }

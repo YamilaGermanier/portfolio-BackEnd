@@ -12,16 +12,18 @@ public class Habilidades {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
-    private String nombreHab;
+    private String nombre;
     private int porcentaje;
+    private String color;
 
     public Habilidades() {
     }
 
-    public Habilidades(int Id, String nombreHab, int porcentaje) {
+    public Habilidades(int Id, String nombre, int porcentaje, String color) {
         this.Id = Id;
-        this.nombreHab = nombreHab;
+        this.nombre = nombre;
         this.porcentaje = porcentaje;
+        this.color = color;
     }
 
     public int getId() {
@@ -32,12 +34,12 @@ public class Habilidades {
         this.Id = Id;
     }
 
-    public String getNombreHab() {
-        return nombreHab;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombreHab(String nombreHab) {
-        this.nombreHab = nombreHab;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getPorcentaje() {
@@ -46,6 +48,14 @@ public class Habilidades {
 
     public void setPorcentaje(int porcentaje) {
         this.porcentaje = porcentaje;
+    }
+    
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
     
     
